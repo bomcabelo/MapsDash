@@ -14,6 +14,10 @@ st.title('Construindo Relatórios para Data Science com Streamlit')
 # importando conjunto de dados
 contratos = pd.read_csv('data-1622225673337.csv')
 
+# Visualizando os dados
+st.markdown('### __Base de dados:  Contratos em Andamento__ ')
+st.dataframe(contratos)
+st.markdown('---')
 
 # Fim
 
