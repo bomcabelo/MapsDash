@@ -1,6 +1,15 @@
 # Construindo relatórios e dashboard para Data Science em Python
 
-streamlit hello
+# importando as bibliotecas
+import streamlit as st
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+import plotly.express as px
+from PIL import Image
+
+# Adicionando um titulo
+st.title('Construindo Relatórios para Data Science com Streamlit')
 
 
 # Fim
