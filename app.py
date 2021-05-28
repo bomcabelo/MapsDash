@@ -2,7 +2,8 @@
 
 # Importando os módulos:
 import streamlit as st
-import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 import seaborn as sns
 import plotly.express as px
@@ -33,11 +34,19 @@ mapa = folium.Map(location=[-15.788497,-47.879873],zoom_start=11)
 # Visualização Gráfica
 st.title('Visualização Gráfica')
 
-chart_data = pd.DataFrame(
-     np.random.randn(20, 3),
-     columns=['a', 'b', 'c'])
+# Data for plotting
+t = np.arange(0.0, 2.0, 0.01)
+s = 1 + np.sin(2 * np.pi * t)
 
-st.line_chart(chart_data)
+fig, ax = plt.subplots()
+ax.plot(t, s)
+
+ax.set(xlabel='time (s)', ylabel='voltage (mV)',
+       title='About as simple as it gets, folks')
+ax.grid()
+
+fig.savefig("test.png")
+plt.show()
 
 # Adicionando os registros no mapa de calor:
 #fig = mapa.add_child(plugins.HeatMap(coordenadas))        
