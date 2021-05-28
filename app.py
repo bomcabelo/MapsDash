@@ -1,42 +1,12 @@
-import dash
-import dash_core_components as dcc
-import dash_html_components as html
-from dash.dependencies import Input, Output
 import plotly.express as px
+import pandas as pd
 
-df = px.data.election()
-geojson = px.data.election_geojson()
-candidates = df.winner.unique()
-
-app = dash.Dash(__name__)
-
-
-app.layout = html.Div([
-    html.P("Candidate:"),
-    dcc.RadioItems(
-        id='candidate', 
-        options=[{'value': x, 'label': x} 
-                 for x in candidates],
-        value=candidates[0],
-        labelStyle={'display': 'inline-block'}
-    ),
-    dcc.Graph(id="choropleth"),
+df = pd.DataFrame([
+    dict(Task="Job A", Start='2009-01-01', Finish='2009-02-28'),
+    dict(Task="Job B", Start='2009-03-05', Finish='2009-04-15'),
+    dict(Task="Job C", Start='2009-02-20', Finish='2009-05-30')
 ])
 
-
-@app.callback(
-    Output("choropleth", "figure"), 
-    [Input("candidate", "value")])
-def display_choropleth(candidate):
-    fig = px.choropleth(
-        df, geojson=geojson, color=candidate,
-        locations="district", featureidkey="properties.district",
-        projection="mercator", range_color=[0, 6500])
-    fig.update_geos(fitbounds="locations", visible=False)
-    fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-
-    return fig
-
-
-if __name__ == "__main__":
-    app.run_server(debug=True)
+fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task")
+fig.update_yaxes(autorange="reversed") # otherwise tasks are listed from the bottom up
+fig.show()
