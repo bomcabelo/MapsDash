@@ -2,7 +2,7 @@
 
 # Importando os módulos:
 import streamlit as st
-import matplotlib.pyplot as plt
+import matplotlib
 import pandas as pd
 import seaborn as sns
 import plotly.express as px
