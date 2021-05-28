@@ -32,11 +32,11 @@ mapa = folium.Map(location=[-15.788497,-47.879873],zoom_start=11)
 # Visualização Gráfica
 st.title('Visualização Gráfica')
 
->>> chart_data = pd.DataFrame(
-...     np.random.randn(20, 3),
-...     columns=['a', 'b', 'c'])
-...
->>> st.line_chart(chart_data)
+chart_data = pd.DataFrame(
+     np.random.randn(20, 3),
+     columns=['a', 'b', 'c'])
+
+st.line_chart(chart_data)
 
 # Adicionando os registros no mapa de calor:
 #fig = mapa.add_child(plugins.HeatMap(coordenadas))        
