@@ -30,7 +30,7 @@ for lat,lng in zip(df.lat_documento.values[:18000],df.long_documento.values[:180
 mapa = folium.Map(location=[-15.788497,-47.879873],zoom_start=11)
 
 # Visualização Gráfica
-st.title('Visualização Gráfica')st
+st.title('Visualização Gráfica')
 
 mapa = folium.Map(location=[-15.788497,-47.879873])
 st.plotly_char(mapa)
