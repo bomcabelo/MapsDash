@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 import plotly.express as px
+from PIL import Image
 import folium
 from folium import plugins
-from PIL import Image
 
 # Adicionando um titulo
 st.title('Construindo Relatórios para Data Science com Streamlit')
@@ -28,6 +28,9 @@ for lat,lng in zip(df.lat_documento.values[:18000],df.long_documento.values[:180
 
 # Renderizando o mapa com algumas personalizações:
 mapa = folium.Map(location=[-15.788497,-47.879873],zoom_start=11)
+
+# Visualização Gráfica
+st.title('Visualização Gráfica')
 
 # Adicionando os registros no mapa de calor:
 mapa = mapa.add_child(plugins.HeatMap(coordenadas))        
