@@ -1,3 +1,2 @@
-dash
-plotly.express
-pandas
+streamlit
+
