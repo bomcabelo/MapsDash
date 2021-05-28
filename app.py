@@ -33,8 +33,8 @@ mapa = folium.Map(location=[-15.788497,-47.879873],zoom_start=11)
 st.title('Visualização Gráfica')
 
 # Adicionando os registros no mapa de calor:
-mapa = mapa.add_child(plugins.HeatMap(coordenadas))        
-st.plotly_chart(mapa)
+fig = mapa.add_child(plugins.HeatMap(coordenadas))        
+st.plotly_chart(fig)
 
 # Fim
 
