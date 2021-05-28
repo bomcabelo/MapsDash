@@ -12,7 +12,7 @@ from PIL import Image
 st.title('Construindo Relatórios para Data Science com Streamlit')
 
 # importando conjunto de dados
-contratos = pd.read_excel('./dados/data-1622225673337.csv')
+contratos = pd.read_excel('data-1622225673337.csv')
 
 
 
