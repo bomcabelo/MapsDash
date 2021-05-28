@@ -30,11 +30,14 @@ for lat,lng in zip(df.lat_documento.values[:18000],df.long_documento.values[:180
 mapa = folium.Map(location=[-15.788497,-47.879873],zoom_start=11)
 
 # Visualização Gráfica
-st.title('Visualização Gráfica')
+st.title('Visualização Gráfica')st
+
+mapa = folium.Map(location=[-15.788497,-47.879873])
+st.plotly_char(mapa)
 
 # Adicionando os registros no mapa de calor:
-fig = mapa.add_child(plugins.HeatMap(coordenadas))        
-st.plotly_chart(fig)
+#fig = mapa.add_child(plugins.HeatMap(coordenadas))        
+#st.plotly_chart(fig)
 
 # Fim
 
