@@ -11,6 +11,11 @@ from PIL import Image
 # Adicionando um titulo
 st.title('Construindo Relatórios para Data Science com Streamlit')
 
+# importando conjunto de dados
+contratos = pd.read_csv('/dados/data-1622225673337.csv')
+
+contratos.head()
+
 
 # Fim
 
