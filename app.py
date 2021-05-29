@@ -20,9 +20,27 @@ import pandas as pd
 import numpy as np
 import altair as alt
 import pydeck as pdk
+import folium
+from folium import plugins
 
 # SETTING PAGE CONFIG TO WIDE MODE
 st.set_page_config(layout="wide")
+
+# importando conjunto de dados
+contratos = df = pd.read_csv("data-1619262085828.csv")
+
+# Visualizando os dados
+st.markdown('### __Base de dados:  Contratos em Andamento__ ')
+st.dataframe(contratos)
+st.markdown('---')
+
+# Extraindo as coordenadas de 18000 registros:
+coordenadas=[]
+for lat,lng in zip(df.lat_documento.values[:18000],df.long_documento.values[:18000]):
+  coordenadas.append([lat,lng])
+
+# Renderizando o mapa com algumas personalizações:
+mapa = folium.Map(location=[-15.788497,-47.879873],zoom_start=11)
 
 # LOADING DATA
 DATE_TIME = "date/time"
