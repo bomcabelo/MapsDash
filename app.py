@@ -35,11 +35,15 @@ mapa = folium.Map(location=[-15.788497,-47.879873],zoom_start=11)
 # Visualização Gráfica
 st.title('Visualização Gráfica')
 
-import plotly.graph_objects as go
+df = px.data.gapminder()
+df_2007 = df.query("year==2007")
 
-fig = go.Figure(go.Scattergeo())
-fig.update_layout(height=300, margin={"r":0,"t":0,"l":0,"b":0})
-fig.show()
+for template in ["plotly", "plotly_white", "plotly_dark", "ggplot2", "seaborn", "simple_white", "none"]:
+    fig = px.scatter(df_2007,
+                     x="gdpPercap", y="lifeExp", size="pop", color="continent",
+                     log_x=True, size_max=60,
+                     template=template, title="Gapminder 2007: '%s' theme" % template)
+    fig.show()
 
 # Adicionando os registros no mapa de calor:
 #fig = mapa.add_child(plugins.HeatMap(coordenadas))        
