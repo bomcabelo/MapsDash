@@ -8,6 +8,7 @@ import pandas as pd
 import seaborn as sns
 import plotly.express as px
 import plotly.figure_factory as ff
+import plotly.graph_objects as go
 from PIL import Image
 import folium
 from folium import plugins
@@ -34,6 +35,11 @@ mapa = folium.Map(location=[-15.788497,-47.879873],zoom_start=11)
 # Visualização Gráfica
 st.title('Visualização Gráfica')
 
+import plotly.graph_objects as go
+
+fig = go.Figure(go.Scattergeo())
+fig.update_layout(height=300, margin={"r":0,"t":0,"l":0,"b":0})
+fig.show()
 
 # Adicionando os registros no mapa de calor:
 #fig = mapa.add_child(plugins.HeatMap(coordenadas))        
