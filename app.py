@@ -21,9 +21,13 @@ st.title('Construindo Relatórios para Data Science com Streamlit')
 contratos = df = pd.read_csv("data-1619262085828.csv")
 
 # Carregar os dados de Dados Abertos do GDF
+DATE_COLUMN = 'date/time'
 DATA_URL = ('http://dados.df.gov.br/pt_BR/dataset/933d7164-8128-4e12-97e6-208bc4935bcb/resource/d4b9d2aa-ed71-4c7e-8deb-e097590d2cba/download/contratosinesp.csv')
-def load_data(nrows)
+def load_data(nrows):
     data = pd.read_csv(DATA_URL, nrows=nrows)
+    lowercase = lambda x: str(x).lower()
+    data.rename(lowercase, axis='columns', inplace=True)
+    data[DATE_COLUMN] = pd.to_datetime(data[DATE_COLUMN])
     return data
 
 # Agora vamos testar a função e revisar a saída. Abaixo de sua função, adicione estas linhas:
