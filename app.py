@@ -29,33 +29,29 @@ st.markdown('### __Base de dados:  Contratos em Andamento__ ')
 st.dataframe(df_sodf)
 st.markdown('---')
 
-def hex_to_rgb(h):
-    h = h.lstrip('#')
-    return tuple(int(h[i:i+2], 16) for i in (0, 2, 4))
+data = pd.DataFrame({
+    'awesome cities' : ['Chicago', 'Minneapolis', 'Louisville', 'Topeka'],
+    'lat' : [41.868171, 44.979840,  38.257972, 39.030575],
+    'lon' : [-87.667458, -93.272474, -85.765187,  -95.702548]
+})
 
-df['color'] = df['color'].apply(hex_to_rgb)
+# Adding code so we can have map default to the center of the data
+midpoint = (np.average(data['lat']), np.average(data['lon']))
 
-view_state = pdk.ViewState(
-    latitude=-15.788497,
-    longitude=-47.879873,
-    zoom=10
-)
-
-layer = pdk.Layer(
-    type='PathLayer',
-    data=df,
-    pickable=True,
-    get_color='color',
-    width_scale=20,
-    width_min_pixels=2,
-    get_path='path',
-    get_width=5
-)
-
-r = pdk.Deck(layers=[layer], initial_view_state=view_state, tooltip={'text': '{name}'})
-
-st.pydeck_chart(r)
-
+st.deck_gl_chart(
+            viewport={
+                'latitude': midpoint[0],
+                'longitude':  midpoint[1],
+                'zoom': 4
+            },
+            layers=[{
+                'type': 'ScatterplotLayer',
+                'data': data,
+                'radiusScale': 250,
+   'radiusMinPixels': 5,
+                'getFillColor': [248, 24, 148],
+            }]
+        )
 
 st.title('Uber pickups in NYC')
 
