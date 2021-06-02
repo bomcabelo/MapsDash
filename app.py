@@ -25,7 +25,15 @@ st.markdown('### __Base de dados:  Contratos em Andamento__ ')
 st.dataframe(contratos)
 st.markdown('---')
 
-mapa = folium.Map(location=[-15.788497,-47.879873])
-st.plotly_chart(mapa)
+st.subheader('Number of pickups by hour')
+
+hist_values = np.histogram(
+    data[DATE_COLUMN].dt.hour, bins=24, range=(0,24))[0]
+
+st.bar_chart(hist_values)
+
+
+#mapa = folium.Map(location=[-15.788497,-47.879873])
+#st.plotly_chart(mapa)
 
 # Fim
