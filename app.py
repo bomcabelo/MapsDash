@@ -29,29 +29,34 @@ st.markdown('### __Base de dados:  Contratos em Andamento__ ')
 st.dataframe(df_sodf)
 st.markdown('---')
 
-data = pd.DataFrame({
-    'awesome cities' : ['Chicago', 'Minneapolis', 'Louisville', 'Topeka'],
-    'lat' : [41.868171, 44.979840,  38.257972, 39.030575],
-    'lon' : [-87.667458, -93.272474, -85.765187,  -95.702548]
-})
+# Exemplo
 
-# Adding code so we can have map default to the center of the data
-midpoint = (np.average(data['lat']), np.average(data['lon']))
+import streamlit as st
+from shapely.geometry import Point, Polygon
+import geopandas as gpd
+import pandas as pd
+import geopy
 
-st.deck_gl_chart(
-            viewport={
-                'latitude': midpoint[0],
-                'longitude':  midpoint[1],
-                'zoom': 4
-            },
-            layers=[{
-                'type': 'ScatterplotLayer',
-                'data': data,
-                'radiusScale': 250,
-   'radiusMinPixels': 5,
-                'getFillColor': [248, 24, 148],
-            }]
-        )
+from geopy.geocoders import Nominatim
+from geopy.extra.rate_limiter import RateLimiter
+
+street = st.sidebar.text_input("Street", "75 Bay Street")
+city = st.sidebar.text_input("City", "Toronto")
+province = st.sidebar.text_input("Province", "Ontario")
+country = st.sidebar.text_input("Country", "Canada")
+
+geolocator = Nominatim(user_agent="GTA Lookup")
+geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)
+location = geolocator.geocode(street+", "+city+", "+province+", "+country)
+
+lat = location.latitude
+lon = location.longitude
+
+map_data = pd.DataFrame({'lat': [lat], 'lon': [lon]})
+
+st.map(map_data) 
+
+# Fim do Exemplo
 
 st.title('Uber pickups in NYC')
 
