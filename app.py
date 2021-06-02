@@ -26,6 +26,15 @@ df_sodf = pd.read_csv('http://dados.df.gov.br/pt_BR/dataset/933d7164-8128-4e12-9
 
 df = pd.read_csv('data-1619262085828.csv')
 
+# Extraindo as coordenadas de 18000 registros:
+coordenadas=[]
+for lat,lng in zip(df.lat_documento.values[:18000],df.long_documento.values[:18000]):
+  coordenadas.append([lat,lng])
+
+
+# Renderizando o mapa com algumas personalizações:
+mapa = folium.Map(location=[-15.788497,-47.879873],zoom_start=11)
+
 
 # Visualizando os dados
 st.markdown('### __Base de dados:  Contratos em Andamento__ ')
