@@ -18,11 +18,14 @@ from folium import plugins
 st.title('Construindo Relatórios para Data Science com Streamlit')
 
 # importando conjunto de dados
+DATE_COLUMN = 'date/time'
+DATA_URL = ('http://dados.df.gov.br/pt_BR/dataset/933d7164-8128-4e12-97e6-208bc4935bcb/resource/d4b9d2aa-ed71-4c7e-8deb-e097590d2cba/download/contratosinesp.csv')
+contrato = pd.read_csv(DATA_URL, nrows=nrows)
 # contrato = pd.read_csv("data-1619262085828.csv")
 
 # Carregar os dados de Dados Abertos do GDF
-DATE_COLUMN = 'date/time'
-DATA_URL = ('http://dados.df.gov.br/pt_BR/dataset/933d7164-8128-4e12-97e6-208bc4935bcb/resource/d4b9d2aa-ed71-4c7e-8deb-e097590d2cba/download/contratosinesp.csv')
+
+
 def load_data(nrows):
     df = pd.read_csv(DATA_URL, nrows=nrows)
     lowercase = lambda x: str(x).lower()
