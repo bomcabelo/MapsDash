@@ -17,12 +17,18 @@ from folium import plugins
 # Adicionando um titulo
 st.title('Construindo Relatórios para Data Science com Streamlit')
 
+df_sus = pd.read_csv('https://s3-sa-east-1.amazonaws.com/ckan.saude.gov.br/SRAG/2020/INFLUD-19-10-2020.csv',
+                     sep=';',
+                     encoding='iso-8859-1',
+                     error_bad_lines=False
+                    )
+
 # importando conjunto de dados
-contratos = df = pd.read_csv("data-1619262085828.csv")
+#contratos = df = pd.read_csv("data-1619262085828.csv")
 
 # Visualizando os dados
 st.markdown('### __Base de dados:  Contratos em Andamento__ ')
-st.dataframe(contratos)
+st.dataframe(df_sus)
 st.markdown('---')
 
 mapa = folium.Map(location=[-15.788497,-47.879873])
