@@ -59,7 +59,7 @@ st.subheader('Map of all pickups at %s:00' % hour_to_filter)
 st.map(filtered_data)
 
 
-mapa = folium.Map(location=[-15.788497,-47.879873])
-st.map(mapa)
+fig = folium.Map(location=[-15.788497,-47.879873])
+st.map(fig)
 
 # Fim
