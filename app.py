@@ -20,9 +20,15 @@ st.title('Construindo Relatórios para Data Science com Streamlit')
 # importando conjunto de dados
 contrato = pd.read_csv("data-1619262085828.csv")
 
+df_sodf = pd.read_csv('http://dados.df.gov.br/pt_BR/dataset/933d7164-8128-4e12-97e6-208bc4935bcb/resource/d4b9d2aa-ed71-4c7e-8deb-e097590d2cba/download/contratosinesp.csv',
+                     sep=';',
+                     encoding='iso-8859-1',
+                     error_bad_lines=False
+                    )
+
 # Visualizando os dados
 st.markdown('### __Base de dados:  Contratos em Andamento__ ')
-st.dataframe(contrato)
+st.dataframe(df_sodf)
 st.markdown('---')
 
 st.title('Uber pickups in NYC')
