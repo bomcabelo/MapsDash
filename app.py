@@ -33,11 +33,7 @@ for lat,lng in zip(df.lat_documento.values[:18000],df.long_documento.values[:180
 
 
 # Renderizando o mapa com algumas personalizações:
-mapa = folium.Map(location=[-15.788497,-47.879873],zoom_start=11)
-
-# Adicionando os registros no mapa de calor:
-mapa.add_child(plugins.HeatMap(coordenadas))        
-st.map(mapa, zoom_start=12)
+st.map(mapa = folium.Map(location=[-15.788497,-47.879873],zoom_start=11))
 
 
 # Visualizando os dados
