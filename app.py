@@ -54,7 +54,7 @@ lon = location.longitude
 
 map_data = pd.DataFrame({'lat': [lat], 'lon': [lon]})
 
-st.map(map_data) 
+st.map(map_data, zoom=12) 
 
 # Fim do Exemplo
 
