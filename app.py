@@ -1,6 +1,7 @@
 # Construindo relatórios e dashboard para Data Science em Python
 
 # Importando os módulos:
+import streamlit_gchart as gchart
 import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
@@ -35,15 +36,31 @@ mapa = folium.Map(location=[-15.788497,-47.879873],zoom_start=11)
 # Visualização Gráfica
 st.title('Visualização Gráfica')
 
-df = px.data.gapminder()
-df_2007 = df.query("year==2007")
+cat_data = [
+    ['Phrases'],
+    ['cats are better than dogs'],
+    ['cats eat kibble'],
+    ['cats are better than hamsters'],
+    ['cats are awesome'],
+    ['cats are people too'],
+    ['cats eat mice'],
+    ['cats meowing'],
+    ['cats in the cradle'],
+    ['cats eat mice'],
+    ['cats in the cradle lyrics'],
+    ['cats eat kibble'],
+    ['cats for adoption'],
+    ['cats are family'],
+    ['cats eat mice'],
+    ['cats are better than kittens'],
+    ['cats are evil'],
+    ['cats are weird'],
+    ['cats eat mice']
+]
+    
+gchart.gchart(key="cat_chart", data=cat_data, chartType="WordTree", 
+    width=600, height=400, wordtree={"format": "implicit", "word": "cats"}
 
-for template in ["plotly", "plotly_white", "plotly_dark", "ggplot2", "seaborn", "simple_white", "none"]:
-    fig = px.scatter(df_2007,
-                     x="gdpPercap", y="lifeExp", size="pop", color="continent",
-                     log_x=True, size_max=60,
-                     template=template, title="Gapminder 2007: '%s' theme" % template)
-    fig.show()
 
 # Adicionando os registros no mapa de calor:
 #fig = mapa.add_child(plugins.HeatMap(coordenadas))        

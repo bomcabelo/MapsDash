@@ -1,4 +1,5 @@
 streamlit
+streamlit-gchart
 matplotlib
 pandas
 seaborn
