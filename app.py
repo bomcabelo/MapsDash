@@ -31,18 +31,11 @@ def load_data(nrows):
     return data
 
 # Agora vamos testar a função e revisar a saída. Abaixo de sua função, adicione estas linhas:
-Create a text element and let the reader know the data is loading.
-data_load_state = st.text('Loading data...')
-# Load 10,000 rows of data into the dataframe.
-data = load_data(10000)
-# Notify the reader that the data was successfully loaded.
-data_load_state.text('Loading data...done!')
-    
 
 
 # Visualizando os dados
 st.markdown('### __Base de dados:  Contratos em Andamento__ ')
-st.dataframe(contratos)
+st.dataframe(data)
 st.markdown('---')
 
 st.title('Uber pickups in NYC')
