@@ -24,6 +24,9 @@ df_sodf = pd.read_csv('http://dados.df.gov.br/pt_BR/dataset/933d7164-8128-4e12-9
                      error_bad_lines=False
                     )
 
+df = pd.read_csv('data-1619262085828.csv')
+
+
 # Visualizando os dados
 st.markdown('### __Base de dados:  Contratos em Andamento__ ')
 st.dataframe(df_sodf)
@@ -31,8 +34,7 @@ st.markdown('---')
 
 # Exemplo
 
-mapa = folium.Map(location=[-15.788497,-47.879873])
-st.map(mapa, zoom=12)
+
 
 # Fim do Exemplo
 
