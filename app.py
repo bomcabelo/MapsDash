@@ -26,6 +26,6 @@ st.dataframe(contratos)
 st.markdown('---')
 
 mapa = folium.Map(location=[-15.788497,-47.879873])
-mapa
+st.plotly_chart(mapa)
 
 # Fim
