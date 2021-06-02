@@ -24,3 +24,8 @@ contratos = df = pd.read_csv("data-1619262085828.csv")
 st.markdown('### __Base de dados:  Contratos em Andamento__ ')
 st.dataframe(contratos)
 st.markdown('---')
+
+mapa = folium.Map(location=[-15.788497,-47.879873])
+mapa
+
+# Fim
