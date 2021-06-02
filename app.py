@@ -18,7 +18,7 @@ from folium import plugins
 st.title('Construindo Relatórios para Data Science com Streamlit')
 
 # importando conjunto de dados
-contratos = df = pd.read_csv("data-1619262085828.csv")
+# contrato = pd.read_csv("data-1619262085828.csv")
 
 # Carregar os dados de Dados Abertos do GDF
 DATE_COLUMN = 'date/time'
@@ -35,7 +35,7 @@ def load_data(nrows):
 
 # Visualizando os dados
 st.markdown('### __Base de dados:  Contratos em Andamento__ ')
-st.dataframe(df)
+st.dataframe(contrato)
 st.markdown('---')
 
 st.title('Uber pickups in NYC')
