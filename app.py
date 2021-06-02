@@ -63,12 +63,7 @@ gchart.gchart(key="cat_chart", data=cat_data, chartType="WordTree",
 
 
 # Adicionando os registros no mapa de calor:
-#fig = mapa.add_child(plugins.HeatMap(coordenadas))        
-#st.plotly_chart(fig)
+# fig = mapa.add_child(plugins.HeatMap(coordenadas))        
+# st.plotly_chart(fig)
 
 # Fim
-
-
-
-
-
