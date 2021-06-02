@@ -17,7 +17,7 @@ from folium import plugins
 # Adicionando um titulo
 st.title('Construindo Relatórios para Data Science com Streamlit')
 
-df_sus = pd.read_csv('https://s3-sa-east-1.amazonaws.com/ckan.saude.gov.br/SRAG/2020/INFLUD-19-10-2020.csv',
+df_sus = pd.read_csv('https://s3-sa-east-1.amazonaws.com/ckan.saude.gov.br/SRAG/2020/INFLUD-24-05-2021.csv',
                      sep=';',
                      encoding='iso-8859-1',
                      error_bad_lines=False
